@@ -1,1 +1,173 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Stories -->
+  <div class="stories">
+    <div class="story your-story">
+      <div class="circle">+</div>
+      <p>Your Story</p>
+    </div>
+    <div class="story"><div class="circle"></div></div>
+    <div class="story"><div class="circle"></div></div>
+    <div class="story"><div class="circle"></div></div>
+  </div>
+
+  <!-- Top Right Icons -->
+  <div class="top-right">
+    <span>+</span>
+    <span>➤</span>
+  </div>
+
+  <!-- Main Image Section -->
+  <div class="main-image">
+    <div class="user-info">
+      <div class="profile-pic"></div>
+      <span>username</span>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="actions">
+    <span>❤</span>
+    <span>💬</span>
+    <span>➤</span>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="nav">
+    <a href="index.html">🏠</a>
+    <a href="search.html">🔍</a>
+    <a href="play.html">▶</a>
+    <a href="shop.html">🛍</a>
+    <a href="favorites.html">❤</a>
+    <a href="profile.html">👤</a>
+  </div>
+
+</body>
+</html>
+
+
+<!-- search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Search Page</h1>
+  <a href="index.html">Back Home</a>
+</body>
+</html>
+
+
+<!-- play.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Play</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Play Page</h1>
+  <a href="index.html">Back Home</a>
+</body>
+</html>
+
+
+<!-- style.css -->
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.stories {
+  display: flex;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.story {
+  text-align: center;
+  margin-right: 10px;
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.your-story .circle {
+  border: 2px solid black;
+}
+
+.top-right {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.main-image {
+  width: 100%;
+  height: 400px;
+  background: #ddd;
+  position: relative;
+}
+
+.user-info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: gray;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 20px;
+}
 
