@@ -12,12 +12,13 @@
   <!-- Top Stories -->
   <div class="stories">
     <div class="story your-story">
-      <div class="circle">+</div>
+      <div class="circle plus">+</div>
       <p>Your Story</p>
     </div>
-    <div class="story"><div class="circle"></div></div>
-    <div class="story"><div class="circle"></div></div>
-    <div class="story"><div class="circle"></div></div>
+    <div class="story"><img src="https://picsum.photos/60?1" class="circle-img"></div>
+    <div class="story"><img src="https://picsum.photos/60?2" class="circle-img"></div>
+    <div class="story"><img src="https://picsum.photos/60?3" class="circle-img"></div>
+    <div class="story"><img src="https://picsum.photos/60?4" class="circle-img"></div>
   </div>
 
   <!-- Top Right Icons -->
@@ -26,11 +27,15 @@
     <span>➤</span>
   </div>
 
-  <!-- Main Image Section -->
-  <div class="main-image">
-    <div class="user-info">
-      <div class="profile-pic"></div>
-      <span>username</span>
+  <!-- Center Image Section -->
+  <div class="center-container">
+    <div class="main-image">
+      <img src="https://picsum.photos/500/400" class="main-img">
+
+      <div class="user-info">
+        <img src="https://picsum.photos/40" class="profile-pic-img">
+        <span>username</span>
+      </div>
     </div>
   </div>
 
@@ -64,7 +69,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Search Page</h1>
+  <h1 class="title">Search Page</h1>
+  <img src="https://picsum.photos/400/300?search" class="page-img">
+  <br>
   <a href="index.html">Back Home</a>
 </body>
 </html>
@@ -79,7 +86,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Play Page</h1>
+  <h1 class="title">Play Page</h1>
+  <img src="https://picsum.photos/400/300?play" class="page-img">
+  <br>
   <a href="index.html">Back Home</a>
 </body>
 </html>
@@ -89,12 +98,20 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  background: white;
+}
+
+/* colorful text accents */
+.title {
+  text-align: center;
+  color: #ff4d6d;
 }
 
 .stories {
   display: flex;
   padding: 10px;
   overflow-x: auto;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
 }
 
 .story {
@@ -112,7 +129,15 @@ body {
   justify-content: center;
 }
 
-.your-story .circle {
+.circle-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff4d6d;
+}
+
+.plus {
   border: 2px solid black;
 }
 
@@ -125,11 +150,26 @@ body {
   font-size: 20px;
 }
 
+/* center the image */
+.center-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .main-image {
-  width: 100%;
+  width: 500px;
   height: 400px;
-  background: #ddd;
   position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .user-info {
@@ -139,21 +179,29 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  color: white;
+  font-weight: bold;
 }
 
-.profile-pic {
-  width: 30px;
-  height: 30px;
+.profile-pic-img {
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  background: gray;
+  object-fit: cover;
+  border: 2px solid white;
 }
 
 .actions {
   display: flex;
   gap: 15px;
   padding: 10px;
-  font-size: 20px;
+  font-size: 22px;
+  justify-content: center;
 }
+
+.actions span:nth-child(1) { color: red; }
+.actions span:nth-child(2) { color: #0077ff; }
+.actions span:nth-child(3) { color: #00c896; }
 
 .nav {
   position: fixed;
@@ -161,13 +209,19 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  background: white;
+  background: linear-gradient(to right, #a18cd1, #fbc2eb);
   padding: 10px 0;
   border-top: 1px solid #ccc;
 }
 
 .nav a {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 22px;
+  color: white;
 }
 
+.page-img {
+  display: block;
+  margin: 20px auto;
+  border-radius: 15px;
+}
