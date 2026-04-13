@@ -1,5 +1,6 @@
 <!-- index.html -->
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -94,11 +95,53 @@
 </html>
 
 
-<!-- style.css -->
+<!-- search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="title">Search Page</h1>
+  <img src="https://picsum.photos/400/300?search" class="page-img">
+  <img src="https://picsum.photos/400/300?search2" class="page-img">
+  <br>
+  <a href="index.html">Back Home</a>
+</body>
+</html>
+
+
+<!-- play.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Play</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="title">Play Page</h1>
+  <img src="https://picsum.photos/400/300?play" class="page-img">
+  <img src="https://picsum.photos/400/300?play2" class="page-img">
+  <br>
+  <a href="index.html">Back Home</a>
+</body>
+</html>
+
+
+/* style.css */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ff6ec4, #ff9a00, #4facfe);
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #ffd1dc, transparent 40%),
+              radial-gradient(circle at 80% 20%, #ffb347, transparent 40%),
+              radial-gradient(circle at 30% 70%, #b5ead7, transparent 45%),
+              radial-gradient(circle at 70% 80%, #aecbfa, transparent 45%),
+              radial-gradient(circle at 50% 50%, #d7b5ff, transparent 50%);
+  background-color: #ffffff;
 }
 
 .stories {
@@ -135,6 +178,7 @@ body {
   width: 90%;
   max-width: 500px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
 }
 
 .post-header {
@@ -156,9 +200,10 @@ body {
   cursor: pointer;
 }
 
-.main-img {
+.main-img, .post img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .profile-pic-img {
@@ -174,17 +219,14 @@ body {
   padding: 20px;
 }
 
-.photo-grid .post img {
-  width: 100%;
-}
-
 .nav {
   position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
-  background: rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
   padding: 10px 0;
 }
 
@@ -192,4 +234,10 @@ body {
   color: white;
   font-size: 22px;
   text-decoration: none;
+}
+
+.page-img {
+  display: block;
+  margin: 20px auto;
+  border-radius: 15px;
 }
