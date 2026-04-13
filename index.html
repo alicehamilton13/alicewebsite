@@ -1,132 +1,91 @@
-/* style.css */
-body{
-  margin:0;
-  font-family:Arial;
-  min-height:100vh;
-  overflow-x:hidden;
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Feed</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  /* PASTEL SWIRL BACKGROUND (NO WHITE) */
-  background:
-    radial-gradient(circle at 10% 20%, rgba(255,179,217,0.9), transparent 45%),
-    radial-gradient(circle at 80% 20%, rgba(255,214,165,0.9), transparent 45%),
-    radial-gradient(circle at 30% 70%, rgba(173,216,230,0.9), transparent 45%),
-    radial-gradient(circle at 70% 80%, rgba(216,191,216,0.9), transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(255,244,143,0.9), transparent 50%);
+  <!-- Stories -->
+  <div class="stories">
+    <div class="story your-story">
+      <div class="circle plus">+</div>
+      <p>Your Story</p>
+    </div>
+    <div class="story"><img src="https://i.pravatar.cc/60?img=1" class="circle-img"></div>
+    <div class="story"><img src="https://i.pravatar.cc/60?img=2" class="circle-img"></div>
+    <div class="story"><img src="https://i.pravatar.cc/60?img=3" class="circle-img"></div>
+    <div class="story"><img src="https://i.pravatar.cc/60?img=4" class="circle-img"></div>
+  </div>
 
-  background-color:#ffd6f3;
-  animation: swirl 12s ease-in-out infinite;
-  background-size:200% 200%;
+  <!-- Feed -->
+  <div class="feed">
+
+    <div class="post">
+      <div class="post-header">
+        <img src="https://i.pravatar.cc/40?img=5">
+        <span class="username">cool_user</span>
+        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
+      </div>
+      <img src="https://picsum.photos/500/600?1">
+      <div class="actions">
+        <button onclick="comment()">💬</button>
+        <button>🔗</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <img src="https://i.pravatar.cc/40?img=6">
+        <span class="username">alex</span>
+        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
+      </div>
+      <img src="https://picsum.photos/500/600?2">
+      <div class="actions">
+        <button onclick="comment()">💬</button>
+        <button>🔗</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <img src="https://i.pravatar.cc/40?img=7">
+        <span class="username">jordan</span>
+        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
+      </div>
+      <img src="https://picsum.photos/500/600?3">
+      <div class="actions">
+        <button onclick="comment()">💬</button>
+        <button>🔗</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Nav -->
+  <div class="nav">
+    <a href="#">🏠</a>
+    <a href="search.html">🔍</a>
+    <a href="play.html">▶</a>
+    <a href="#">🛍</a>
+    <a href="#">❤</a>
+    <a href="#">👤</a>
+  </div>
+
+<script>
+function like(btn){
+  let count = btn.querySelector("span");
+  count.textContent = parseInt(count.textContent) + 1;
+  btn.classList.toggle("liked");
 }
 
-@keyframes swirl{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+function comment(){
+  alert("Comments coming soon!");
 }
+</script>
 
-.stories{
-  display:flex;
-  overflow-x:auto;
-  padding:10px;
-}
-
-.circle-img{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  border:3px solid rgba(255,105,180,0.6);
-}
-
-.feed{
-  height:80vh;
-  overflow-y:scroll;
-  scroll-snap-type:y mandatory;
-}
-
-.post{
-  scroll-snap-align:start;
-  margin:20px;
-  border-radius:25px;
-  overflow:hidden;
-
-  background: linear-gradient(135deg,
-    rgba(255,105,180,0.7),
-    rgba(255,183,77,0.7),
-    rgba(100,181,246,0.7),
-    rgba(186,104,200,0.7)
-  );
-  backdrop-filter: blur(10px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* FIXED IMAGE (NO ZOOM / FULL IMAGE VISIBLE) */
-.post > img{
-  width:100%;
-  height:auto;
-  max-height:none;
-  object-fit:contain;
-  display:block;
-  background: transparent;
-}
-
-.post-header{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:10px;
-  color:#2b0033;
-  font-weight:bold;
-}
-
-.username{
-  flex:1;
-}
-
-.like-btn{
-  background:none;
-  border:none;
-  font-size:18px;
-  cursor:pointer;
-  color:#2b0033;
-}
-
-.like-btn.liked{
-  color:#ff006e;
-}
-
-.actions{
-  display:flex;
-  justify-content:space-around;
-  padding:10px;
-  color:#2b0033;
-}
-
-.nav{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  display:flex;
-  justify-content:space-around;
-
-  background: linear-gradient(90deg,
-    rgba(255,105,180,0.8),
-    rgba(255,183,77,0.8),
-    rgba(100,181,246,0.8),
-    rgba(186,104,200,0.8)
-  );
-
-  padding:12px;
-  backdrop-filter: blur(10px);
-}
-
-.nav a{
-  color:#2b0033;
-  font-size:22px;
-  text-decoration:none;
-}
-
-.page-img{
-  display:block;
-  margin:20px auto;
-  border-radius:15px;
-}
+</body>
+</html>
