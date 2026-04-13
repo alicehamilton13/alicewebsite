@@ -7,15 +7,15 @@ body{
 
   /* PASTEL SWIRL BACKGROUND (NO WHITE) */
   background:
-    radial-gradient(circle at 10% 20%, rgba(255,179,217,0.9), transparent 45%), /* pink */
-    radial-gradient(circle at 80% 20%, rgba(255,214,165,0.9), transparent 45%), /* orange */
-    radial-gradient(circle at 30% 70%, rgba(173,216,230,0.9), transparent 45%), /* blue */
-    radial-gradient(circle at 70% 80%, rgba(216,191,216,0.9), transparent 45%), /* purple */
-    radial-gradient(circle at 50% 50%, rgba(255,244,143,0.9), transparent 50%); /* yellow */
+    radial-gradient(circle at 10% 20%, rgba(255,179,217,0.9), transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(255,214,165,0.9), transparent 45%),
+    radial-gradient(circle at 30% 70%, rgba(173,216,230,0.9), transparent 45%),
+    radial-gradient(circle at 70% 80%, rgba(216,191,216,0.9), transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(255,244,143,0.9), transparent 50%);
 
-  background-color: #ffd6f3;
+  background-color:#ffd6f3;
   animation: swirl 12s ease-in-out infinite;
-  background-size: 200% 200%;
+  background-size:200% 200%;
 }
 
 @keyframes swirl{
@@ -24,7 +24,6 @@ body{
   100%{background-position:0% 50%;}
 }
 
-/* STORIES */
 .stories{
   display:flex;
   overflow-x:auto;
@@ -38,7 +37,6 @@ body{
   border:3px solid rgba(255,105,180,0.6);
 }
 
-/* FEED */
 .feed{
   height:80vh;
   overflow-y:scroll;
@@ -51,7 +49,6 @@ body{
   border-radius:25px;
   overflow:hidden;
 
-  /* NO WHITE CARDS */
   background: linear-gradient(135deg,
     rgba(255,105,180,0.7),
     rgba(255,183,77,0.7),
@@ -62,14 +59,14 @@ body{
   box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* FIX: less zoomed images */
-.post img{
+/* FIXED IMAGE (NO ZOOM / FULL IMAGE VISIBLE) */
+.post > img{
   width:100%;
-  max-height:350px;
+  height:auto;
+  max-height:none;
   object-fit:contain;
   display:block;
-  padding:10px;
-  box-sizing:border-box;
+  background: transparent;
 }
 
 .post-header{
@@ -104,7 +101,6 @@ body{
   color:#2b0033;
 }
 
-/* NAV */
 .nav{
   position:fixed;
   bottom:0;
