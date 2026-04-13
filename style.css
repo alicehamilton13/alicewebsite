@@ -1,19 +1,111 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Feed</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Stories -->
+  <div class="stories">
+    <div class="story your-story">
+      <div class="circle plus">+</div>
+      <p>Your Story</p>
+    </div>
+    <div class="story"><img src="https://i.pravatar.cc/60?img=1" class="circle-img"></div>
+    <div class="story"><img src="https://i.pravatar.cc/60?img=2" class="circle-img"></div>
+    <div class="story"><img src="https://i.pravatar.cc/60?img=3" class="circle-img"></div>
+    <div class="story"><img src="https://i.pravatar.cc/60?img=4" class="circle-img"></div>
+  </div>
+
+  <!-- Feed -->
+  <div class="feed">
+
+    <div class="post">
+      <div class="post-header">
+        <img src="https://i.pravatar.cc/40?img=5">
+        <span class="username">cool_user</span>
+        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
+      </div>
+      <img src="https://picsum.photos/500/600?1">
+      <div class="actions">
+        <button onclick="comment()">💬</button>
+        <button>🔗</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <img src="https://i.pravatar.cc/40?img=6">
+        <span class="username">alex</span>
+        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
+      </div>
+      <img src="https://picsum.photos/500/600?2">
+      <div class="actions">
+        <button onclick="comment()">💬</button>
+        <button>🔗</button>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <img src="https://i.pravatar.cc/40?img=7">
+        <span class="username">jordan</span>
+        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
+      </div>
+      <img src="https://picsum.photos/500/600?3">
+      <div class="actions">
+        <button onclick="comment()">💬</button>
+        <button>🔗</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Nav -->
+  <div class="nav">
+    <a href="#">🏠</a>
+    <a href="search.html">🔍</a>
+    <a href="play.html">▶</a>
+    <a href="#">🛍</a>
+    <a href="#">❤</a>
+    <a href="#">👤</a>
+  </div>
+
+<script>
+function like(btn){
+  let count = btn.querySelector("span");
+  count.textContent = parseInt(count.textContent) + 1;
+  btn.classList.toggle("liked");
+}
+
+function comment(){
+  alert("Comments coming soon!");
+}
+</script>
+
+</body>
+</html>
+
 /* style.css */
 body{
   margin:0;
   font-family:Arial;
-  min-height:100vh;
   overflow-x:hidden;
+  min-height:100vh;
 
-  /* PASTEL SWIRL BACKGROUND (NO WHITE) */
+  /* FULL pastel swirl - no white anywhere */
   background:
-    radial-gradient(circle at 10% 20%, rgba(255,179,217,0.9), transparent 45%),
-    radial-gradient(circle at 80% 20%, rgba(255,214,165,0.9), transparent 45%),
+    radial-gradient(circle at 10% 20%, rgba(255,182,193,0.9), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(255,223,186,0.9), transparent 40%),
     radial-gradient(circle at 30% 70%, rgba(173,216,230,0.9), transparent 45%),
     radial-gradient(circle at 70% 80%, rgba(216,191,216,0.9), transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(255,244,143,0.9), transparent 50%);
+    radial-gradient(circle at 50% 50%, rgba(255,255,153,0.9), transparent 50%);
 
-  background-color:#ffd6f3;
+  background-color:#f7eaff;
   animation: swirl 12s ease-in-out infinite;
   background-size:200% 200%;
 }
@@ -34,7 +126,6 @@ body{
   width:60px;
   height:60px;
   border-radius:50%;
-  border:3px solid rgba(255,105,180,0.6);
 }
 
 .feed{
@@ -49,24 +140,15 @@ body{
   border-radius:25px;
   overflow:hidden;
 
-  background: linear-gradient(135deg,
-    rgba(255,105,180,0.7),
-    rgba(255,183,77,0.7),
-    rgba(100,181,246,0.7),
-    rgba(186,104,200,0.7)
-  );
-  backdrop-filter: blur(10px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  /* NO WHITE - glass pastel card */
+  background: rgba(255, 240, 250, 0.25);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
-/* FIXED IMAGE (NO ZOOM / FULL IMAGE VISIBLE) */
-.post > img{
+.post img{
   width:100%;
-  height:auto;
-  max-height:none;
-  object-fit:contain;
   display:block;
-  background: transparent;
 }
 
 .post-header{
@@ -74,12 +156,13 @@ body{
   align-items:center;
   gap:10px;
   padding:10px;
-  color:#2b0033;
-  font-weight:bold;
+  color:#fff;
 }
 
 .username{
   flex:1;
+  font-weight:bold;
+  color:#fff;
 }
 
 .like-btn{
@@ -87,18 +170,18 @@ body{
   border:none;
   font-size:18px;
   cursor:pointer;
-  color:#2b0033;
+  color:#fff;
 }
 
 .like-btn.liked{
-  color:#ff006e;
+  color:#ff4d6d;
 }
 
 .actions{
   display:flex;
   justify-content:space-around;
   padding:10px;
-  color:#2b0033;
+  color:#fff;
 }
 
 .nav{
@@ -108,25 +191,15 @@ body{
   display:flex;
   justify-content:space-around;
 
-  background: linear-gradient(90deg,
-    rgba(255,105,180,0.8),
-    rgba(255,183,77,0.8),
-    rgba(100,181,246,0.8),
-    rgba(186,104,200,0.8)
-  );
-
-  padding:12px;
-  backdrop-filter: blur(10px);
+  /* NO WHITE */
+  background: rgba(255, 200, 240, 0.25);
+  backdrop-filter: blur(15px);
+  padding:10px;
+  border-top: 1px solid rgba(255,255,255,0.2);
 }
 
 .nav a{
-  color:#2b0033;
+  color:#fff;
   font-size:22px;
   text-decoration:none;
-}
-
-.page-img{
-  display:block;
-  margin:20px auto;
-  border-radius:15px;
 }
