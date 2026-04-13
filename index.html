@@ -19,6 +19,8 @@
     <div class="story"><img src="https://picsum.photos/60?2" class="circle-img"></div>
     <div class="story"><img src="https://picsum.photos/60?3" class="circle-img"></div>
     <div class="story"><img src="https://picsum.photos/60?4" class="circle-img"></div>
+    <div class="story"><img src="https://picsum.photos/60?5" class="circle-img"></div>
+    <div class="story"><img src="https://picsum.photos/60?6" class="circle-img"></div>
   </div>
 
   <!-- Top Right Icons -->
@@ -30,13 +32,21 @@
   <!-- Center Image Section -->
   <div class="center-container">
     <div class="main-image">
-      <img src="https://picsum.photos/500/400" class="main-img">
+      <img src="https://picsum.photos/500/400?main" class="main-img">
 
       <div class="user-info">
-        <img src="https://picsum.photos/40" class="profile-pic-img">
+        <img src="https://picsum.photos/40?profile" class="profile-pic-img">
         <span>username</span>
       </div>
     </div>
+  </div>
+
+  <!-- Extra Photo Grid -->
+  <div class="photo-grid">
+    <img src="https://picsum.photos/200?7">
+    <img src="https://picsum.photos/200?8">
+    <img src="https://picsum.photos/200?9">
+    <img src="https://picsum.photos/200?10">
   </div>
 
   <!-- Action Buttons -->
@@ -71,6 +81,7 @@
 <body>
   <h1 class="title">Search Page</h1>
   <img src="https://picsum.photos/400/300?search" class="page-img">
+  <img src="https://picsum.photos/400/300?search2" class="page-img">
   <br>
   <a href="index.html">Back Home</a>
 </body>
@@ -88,6 +99,7 @@
 <body>
   <h1 class="title">Play Page</h1>
   <img src="https://picsum.photos/400/300?play" class="page-img">
+  <img src="https://picsum.photos/400/300?play2" class="page-img">
   <br>
   <a href="index.html">Back Home</a>
 </body>
@@ -98,20 +110,18 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: white;
+  background: linear-gradient(135deg, #ff6ec4, #ff9a00, #4facfe);
 }
 
-/* colorful text accents */
 .title {
   text-align: center;
-  color: #ff4d6d;
+  color: white;
 }
 
 .stories {
   display: flex;
   padding: 10px;
   overflow-x: auto;
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
 }
 
 .story {
@@ -134,7 +144,7 @@ body {
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #ff4d6d;
+  border: 3px solid white;
 }
 
 .plus {
@@ -148,9 +158,9 @@ body {
   display: flex;
   gap: 10px;
   font-size: 20px;
+  color: white;
 }
 
-/* center the image */
 .center-container {
   display: flex;
   justify-content: center;
@@ -163,7 +173,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .main-img {
@@ -191,17 +201,26 @@ body {
   border: 2px solid white;
 }
 
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 20px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 15px;
+}
+
 .actions {
   display: flex;
   gap: 15px;
   padding: 10px;
   font-size: 22px;
   justify-content: center;
+  color: white;
 }
-
-.actions span:nth-child(1) { color: red; }
-.actions span:nth-child(2) { color: #0077ff; }
-.actions span:nth-child(3) { color: #00c896; }
 
 .nav {
   position: fixed;
@@ -209,9 +228,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  background: linear-gradient(to right, #a18cd1, #fbc2eb);
+  background: rgba(0,0,0,0.3);
   padding: 10px 0;
-  border-top: 1px solid #ccc;
 }
 
 .nav a {
