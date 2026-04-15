@@ -78,7 +78,14 @@
 <script>
 function like(btn){
   const count = btn.querySelector("span");
-  count.textContent = parseInt(count.textContent) + 1;
+  let current = parseInt(count.textContent);
+
+  if(btn.classList.contains("liked")){
+    count.textContent = current - 1;   // unlike
+  } else {
+    count.textContent = current + 1;   // like
+  }
+
   btn.classList.toggle("liked");
 }
 
