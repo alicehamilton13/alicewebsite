@@ -26,40 +26,40 @@
 
     <div class="post">
       <div class="post-header">
-        <img src="https://i.pravatar.cc/40?img=5">
+        <img src="https://i.pravatar.cc/40?img=5" class="profile-pic">
         <span class="username">cool_user</span>
-        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
       </div>
-      <img src="https://picsum.photos/500/600?1">
+      <img src="https://picsum.photos/1200/800?1" alt="post">
       <div class="actions">
+        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
         <button onclick="comment()">💬</button>
-        <button>🔗</button>
+        <button onclick="share()">🔗</button>
       </div>
     </div>
 
     <div class="post">
       <div class="post-header">
-        <img src="https://i.pravatar.cc/40?img=6">
+        <img src="https://i.pravatar.cc/40?img=6" class="profile-pic">
         <span class="username">alex</span>
-        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
       </div>
-      <img src="https://picsum.photos/500/600?2">
+      <img src="https://picsum.photos/1200/800?2" alt="post">
       <div class="actions">
+        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
         <button onclick="comment()">💬</button>
-        <button>🔗</button>
+        <button onclick="share()">🔗</button>
       </div>
     </div>
 
     <div class="post">
       <div class="post-header">
-        <img src="https://i.pravatar.cc/40?img=7">
+        <img src="https://i.pravatar.cc/40?img=7" class="profile-pic">
         <span class="username">jordan</span>
-        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
       </div>
-      <img src="https://picsum.photos/500/600?3">
+      <img src="https://picsum.photos/1200/800?3" alt="post">
       <div class="actions">
+        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
         <button onclick="comment()">💬</button>
-        <button>🔗</button>
+        <button onclick="share()">🔗</button>
       </div>
     </div>
 
@@ -77,13 +77,17 @@
 
 <script>
 function like(btn){
-  let count = btn.querySelector("span");
+  const count = btn.querySelector("span");
   count.textContent = parseInt(count.textContent) + 1;
   btn.classList.toggle("liked");
 }
 
 function comment(){
   alert("Comments coming soon!");
+}
+
+function share(){
+  alert("Share feature coming soon!");
 }
 </script>
 
