@@ -12,7 +12,7 @@ body{
     radial-gradient(circle at 30% 70%, rgba(255,230,150,0.9), transparent 45%), /* yellow */
     radial-gradient(circle at 70% 80%, rgba(255,170,200,0.9), transparent 45%), /* pink */
     radial-gradient(circle at 50% 50%, rgba(255,210,120,0.9), transparent 50%); /* orange */
-  background-color:#f7eaff;
+  background-color:#ffd6ec; /* soft pink base */
   animation: swirl 12s ease-in-out infinite;
   background-size:200% 200%;
 }
@@ -60,11 +60,11 @@ body{
 
 /* FIX: smaller images + NOT zoomed */
 .post > img{
-  width:90%;              /* smaller than post */
-  height:180px;           /* smaller height */
-  object-fit:contain;     /* show full image (no zoom) */
+  width:85%;
+  height:170px;
+  object-fit:contain;
   display:block;
-  margin:10px auto;       /* center image */
+  margin:10px auto;
   background:transparent;
   border-radius:12px;
 }
@@ -90,20 +90,25 @@ body{
 
 .actions{
   display:flex;
-  justify-content:space-around;
-  padding:10px;
+  justify-content:flex-start; /* move buttons closer to image */
+  gap:15px;
+  padding:10px 15px;
 }
 
 .like-btn{
-  background:none;
+  background:rgba(255,255,255,0.3);
   border:none;
   font-size:18px;
   cursor:pointer;
-  color:#2b0033;
+  color:#ff4d88;
+  padding:6px 10px;
+  border-radius:12px;
+  backdrop-filter:blur(5px);
 }
 
 .like-btn.liked{
-  color:#ff006e;
+  color:#ff0055;
+  transform:scale(1.2);
 }
 
 .nav{
