@@ -98,16 +98,15 @@ function like(el){
   const likes = post.querySelector(".likes");
   let num = parseInt(likes.textContent);
 
+  // get BOTH hearts (top + bottom)
+  const hearts = post.querySelectorAll(".top-like, .actions span:first-child");
+
   if(el.classList.contains("liked")){
-    el.classList.remove("liked");
-    likes.textContent = (num-1) + " likes";
+    hearts.forEach(h => h.classList.remove("liked"));
+    likes.textContent = (num - 1) + " likes";
   } else {
-    el.classList.add("liked");
-    likes.textContent = (num+1) + " likes";
-  }
-} else {
-    el.classList.add("liked");
-    likes.textContent = (num+1) + " likes";
+    hearts.forEach(h => h.classList.add("liked"));
+    likes.textContent = (num + 1) + " likes";
   }
 }
 </script>
