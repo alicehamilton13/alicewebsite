@@ -59,13 +59,15 @@ body{
   backdrop-filter: blur(10px);
 }
 
-/* KEY FIX: show more of the image (less zoom) */
+/* FIX: smaller images + NOT zoomed */
 .post > img{
-  width:100%;
-  height:260px;          /* slightly taller so faces aren’t huge */
-  object-fit:contain;    /* shows entire image (no crop) */
-  padding:10px;          /* space around image so it feels zoomed out */
-  box-sizing:border-box;
+  width:90%;              /* smaller than post */
+  height:180px;           /* smaller height */
+  object-fit:contain;     /* show full image (no zoom) */
+  display:block;
+  margin:10px auto;       /* center image */
+  background:transparent;
+  border-radius:12px;
 }
 
 .post-header{
