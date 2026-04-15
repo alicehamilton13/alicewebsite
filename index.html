@@ -64,7 +64,9 @@
       <span>✈️</span>
     </div>
     <p class="likes">0 likes</p>
-    <div class="post">
+  </div>
+
+  <div class="post">
     <div class="post-header">
       <img src="https://i.pravatar.cc/40?img=7">
       <span>jordan</span>
@@ -81,8 +83,6 @@
     <p class="likes">0 likes</p>
   </div>
 
-</div>
-
 <!-- BOTTOM NAV -->
 <div class="nav">
   <span>🏠</span>
@@ -94,13 +94,18 @@
 
 <script>
 function like(el){
-  let likes = el.parentElement.nextElementSibling;
+  const post = el.closest(".post");
+  const likes = post.querySelector(".likes");
   let num = parseInt(likes.textContent);
 
   if(el.classList.contains("liked")){
     el.classList.remove("liked");
     likes.textContent = (num-1) + " likes";
   } else {
+    el.classList.add("liked");
+    likes.textContent = (num+1) + " likes";
+  }
+} else {
     el.classList.add("liked");
     likes.textContent = (num+1) + " likes";
   }
