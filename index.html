@@ -1,138 +1,178 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Social App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Clone</title>
 
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background: linear-gradient(135deg, #ffd1dc, #ffe0b2, #fff3b0);
-}
+  <style>
+    body{
+      margin:0;
+      font-family:Arial;
+      overflow-x:hidden;
 
-/* TOP BAR */
-.top-bar{
-  display:flex;
-  justify-content:space-between;
-  padding:10px;
-  background:white;
-}
+      /* 🌈 Pastel swirl background (NO WHITE) */
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 182, 193, 0.95), transparent 45%), /* pink */
+        radial-gradient(circle at 80% 20%, rgba(255, 200, 150, 0.95), transparent 45%), /* orange */
+        radial-gradient(circle at 30% 70%, rgba(186, 140, 255, 0.85), transparent 50%), /* purple */
+        radial-gradient(circle at 70% 80%, rgba(255, 230, 140, 0.95), transparent 45%), /* yellow */
+        radial-gradient(circle at 50% 50%, rgba(255, 170, 210, 0.9), transparent 55%);
 
-/* STORIES */
-.stories{
-  display:flex;
-  overflow-x:auto;
-  padding:10px;
-  background:white;
-}
+      background-color:#ffd6ec;
+      animation: swirl 12s ease-in-out infinite;
+      background-size:200% 200%;
+    }
 
-.story img{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  margin-right:10px;
-}
+    @keyframes swirl{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
 
-/* FEED */
-.feed{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
+    /* TOP BAR */
+    .top-bar{
+      display:flex;
+      justify-content:space-between;
+      padding:10px;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.2);
+    }
 
-/* POST */
-.post{
-  width:90%;
-  max-width:400px;
-  background:white;
-  margin:15px 0;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+    /* STORIES */
+    .stories{
+      display:flex;
+      overflow-x:auto;
+      padding:10px;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.15);
+    }
 
-/* HEADER */
-.post-header{
-  display:flex;
-  align-items:center;
-  padding:10px;
-  gap:10px;
-}
+    .story img{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      border:2px solid rgba(255, 180, 120, 0.8);
+    }
 
-.post-header img{
-  width:35px;
-  height:35px;
-  border-radius:50%;
-}
+    /* FEED */
+    .feed{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
 
-/* IMAGE */
-.image-container{
-  position:relative;
-}
+    /* POST (NO WHITE) */
+    .post{
+      width:90%;
+      max-width:400px;
+      margin:15px 0;
+      border-radius:15px;
+      overflow:hidden;
 
-.post img.main{
-  width:100%;
-  height:250px;
-  object-fit:contain; /* NO zoom */
-  background:#fff;
-}
+      background: linear-gradient(135deg,
+        rgba(255, 182, 193, 0.25),
+        rgba(255, 200, 150, 0.25),
+        rgba(186, 140, 255, 0.20),
+        rgba(255, 230, 140, 0.25)
+      );
 
-/* HEART ON IMAGE */
-.top-like{
-  position:absolute;
-  top:10px;
-  right:10px;
-  font-size:22px;
-  cursor:pointer;
-  color:black;
-}
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
 
-.top-like.liked{
-  color:red;
-}
+    .post-header{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px;
+      font-weight:bold;
+    }
 
-/* ACTIONS */
-.actions{
-  display:flex;
-  gap:15px;
-  padding:10px;
-  font-size:20px;
-}
+    .post-header img{
+      width:35px;
+      height:35px;
+      border-radius:50%;
+    }
 
-.actions span{
-  cursor:pointer;
-}
+    .image-container{
+      position:relative;
+    }
 
-.actions .liked{
-  color:red;
-}
+    .post img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
 
-/* LIKES TEXT */
-.likes{
-  padding:0 10px 10px;
-  font-weight:bold;
-}
+    /* HEART */
+    .top-like{
+      position:absolute;
+      top:10px;
+      right:10px;
+      font-size:22px;
+      cursor:pointer;
+      color:black;
+      transition:0.2s;
+    }
 
-/* NAV */
-.nav{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  display:flex;
-  justify-content:space-around;
-  padding:10px;
-  background:white;
-}
-</style>
+    .top-like.liked{
+      color:red;
+      transform:scale(1.2);
+    }
+
+    /* ACTIONS */
+    .actions{
+      display:flex;
+      gap:15px;
+      padding:10px;
+      font-size:20px;
+    }
+
+    .actions span{
+      cursor:pointer;
+    }
+
+    .actions .liked{
+      color:red;
+    }
+
+    .likes{
+      padding:0 10px 10px;
+      font-weight:bold;
+    }
+
+    /* NAV (NO WHITE) */
+    .nav{
+      position:fixed;
+      bottom:0;
+      width:100%;
+      display:flex;
+      justify-content:space-around;
+      padding:10px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+  </style>
 </head>
 
 <body>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  <h2>MyGram</h2>
+  <div>
+    <span>➕</span>
+    <span>✉️</span>
+  </div>
+</div>
+
 <!-- STORIES -->
 <div class="stories">
-  <div class="story"><img src="https://i.pravatar.cc/60?img=1"></div>
+  <div class="story">
+    <img src="https://i.pravatar.cc/60?img=1">
+  </div>
   <div class="story"><img src="https://i.pravatar.cc/60?img=2"></div>
   <div class="story"><img src="https://i.pravatar.cc/60?img=3"></div>
 </div>
@@ -140,65 +180,72 @@ body{
 <!-- FEED -->
 <div class="feed">
 
-  <!-- POST 1 -->
   <div class="post">
     <div class="post-header">
       <img src="https://i.pravatar.cc/40?img=5">
-      <b>user1</b>
+      <span>cool_user</span>
     </div>
-
     <div class="image-container">
-      <img class="main" src="https://picsum.photos/600/400?1">
-
-      <div class="top-like" onclick="like(this)">❤</div>
+      <img src="https://picsum.photos/600/600?1">
+      <span class="top-like" onclick="like(this)">❤</span>
     </div>
-
     <div class="actions">
       <span onclick="like(this)">❤</span>
       <span>💬</span>
-      <span>🔗</span>
+      <span>✈️</span>
     </div>
-
-    <div class="likes">0 likes</div>
+    <p class="likes">0 likes</p>
   </div>
 
-  <!-- POST 2 -->
   <div class="post">
     <div class="post-header">
       <img src="https://i.pravatar.cc/40?img=6">
-      <b>user2</b>
+      <span>alex</span>
     </div>
-
     <div class="image-container">
-      <img class="main" src="https://picsum.photos/600/400?2">
-
-      <div class="top-like" onclick="like(this)">❤</div>
+      <img src="https://picsum.photos/600/600?2">
+      <span class="top-like" onclick="like(this)">❤</span>
     </div>
-
     <div class="actions">
       <span onclick="like(this)">❤</span>
       <span>💬</span>
-      <span>🔗</span>
+      <span>✈️</span>
     </div>
+    <p class="likes">0 likes</p>
+  </div>
 
-    <div class="likes">0 likes</div>
+  <div class="post">
+    <div class="post-header">
+      <img src="https://i.pravatar.cc/40?img=7">
+      <span>jordan</span>
+    </div>
+    <div class="image-container">
+      <img src="https://picsum.photos/600/600?3">
+      <span class="top-like" onclick="like(this)">❤</span>
+    </div>
+    <div class="actions">
+      <span onclick="like(this)">❤</span>
+      <span>💬</span>
+      <span>✈️</span>
+    </div>
+    <p class="likes">0 likes</p>
   </div>
 
 </div>
 
-<!-- NAV -->
+<!-- BOTTOM NAV -->
 <div class="nav">
   <span>🏠</span>
   <span>🔍</span>
   <span>➕</span>
   <span>❤</span>
+  <span>👤</span>
 </div>
 
 <script>
 function like(el){
   const post = el.closest(".post");
   const likes = post.querySelector(".likes");
-
   let num = parseInt(likes.textContent);
 
   const hearts = post.querySelectorAll(".top-like, .actions span:first-child");
