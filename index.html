@@ -4,97 +4,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Feed</title>
+  <title>Instagram Clone</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Stories -->
-  <div class="stories">
-    <div class="story your-story">
-      <div class="circle plus">+</div>
-      <p>Your Story</p>
+<!-- TOP BAR -->
+<div class="top-bar">
+  <h2>MyGram</h2>
+  <div>
+    <span>➕</span>
+    <span>✉️</span>
+  </div>
+</div>
+
+<!-- STORIES -->
+<div class="stories">
+  <div class="story">
+    <img src="https://i.pravatar.cc/60?img=1">
+    <p>You</p>
+  </div>
+  <div class="story"><img src="https://i.pravatar.cc/60?img=2"></div>
+  <div class="story"><img src="https://i.pravatar.cc/60?img=3"></div>
+  <div class="story"><img src="https://i.pravatar.cc/60?img=4"></div>
+</div>
+
+<!-- FEED -->
+<div class="feed">
+
+  <div class="post">
+    <div class="post-header">
+      <img src="https://i.pravatar.cc/40?img=5">
+      <span>cool_user</span>
     </div>
-    <div class="story"><img src="https://i.pravatar.cc/60?img=1" class="circle-img"></div>
-    <div class="story"><img src="https://i.pravatar.cc/60?img=2" class="circle-img"></div>
-    <div class="story"><img src="https://i.pravatar.cc/60?img=3" class="circle-img"></div>
-    <div class="story"><img src="https://i.pravatar.cc/60?img=4" class="circle-img"></div>
+    <img src="https://picsum.photos/600/600?1">
+    <div class="actions">
+      <span onclick="like(this)">❤</span>
+      <span>💬</span>
+      <span>✈️</span>
+    </div>
+    <p class="likes">0 likes</p>
   </div>
 
-  <!-- Feed -->
-  <div class="feed">
-
-    <div class="post">
-      <div class="post-header">
-        <img src="https://i.pravatar.cc/40?img=5" class="profile-pic">
-        <span class="username">cool_user</span>
-      </div>
-      <img src="https://picsum.photos/1200/800?1" alt="post">
-      <div class="actions">
-        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
-        <button onclick="comment()">💬</button>
-        <button onclick="share()">🔗</button>
-      </div>
+  <div class="post">
+    <div class="post-header">
+      <img src="https://i.pravatar.cc/40?img=6">
+      <span>alex</span>
     </div>
-
-    <div class="post">
-      <div class="post-header">
-        <img src="https://i.pravatar.cc/40?img=6" class="profile-pic">
-        <span class="username">alex</span>
-      </div>
-      <img src="https://picsum.photos/1200/800?2" alt="post">
-      <div class="actions">
-        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
-        <button onclick="comment()">💬</button>
-        <button onclick="share()">🔗</button>
-      </div>
+    <img src="https://picsum.photos/600/600?2">
+    <div class="actions">
+      <span onclick="like(this)">❤</span>
+      <span>💬</span>
+      <span>✈️</span>
     </div>
-
-    <div class="post">
-      <div class="post-header">
-        <img src="https://i.pravatar.cc/40?img=7" class="profile-pic">
-        <span class="username">jordan</span>
-      </div>
-      <img src="https://picsum.photos/1200/800?3" alt="post">
-      <div class="actions">
-        <button class="like-btn" onclick="like(this)">❤ <span>0</span></button>
-        <button onclick="comment()">💬</button>
-        <button onclick="share()">🔗</button>
-      </div>
-    </div>
-
+    <p class="likes">0 likes</p>
   </div>
 
-  <!-- Nav -->
-  <div class="nav">
-    <a href="#">🏠</a>
-    <a href="search.html">🔍</a>
-    <a href="play.html">▶</a>
-    <a href="#">🛍</a>
-    <a href="#">❤</a>
-    <a href="#">👤</a>
-  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="nav">
+  <span>🏠</span>
+  <span>🔍</span>
+  <span>➕</span>
+  <span>❤</span>
+  <span>👤</span>
+</div>
 
 <script>
-function like(btn){
-  const count = btn.querySelector("span");
-  let current = parseInt(count.textContent);
+function like(el){
+  let likes = el.parentElement.nextElementSibling;
+  let num = parseInt(likes.textContent);
 
-  if(btn.classList.contains("liked")){
-    count.textContent = current - 1;   // unlike
+  if(el.classList.contains("liked")){
+    el.classList.remove("liked");
+    likes.textContent = (num-1) + " likes";
   } else {
-    count.textContent = current + 1;   // like
+    el.classList.add("liked");
+    likes.textContent = (num+1) + " likes";
   }
-
-  btn.classList.toggle("liked");
-}
-
-function comment(){
-  alert("Comments coming soon!");
-}
-
-function share(){
-  alert("Share feature coming soon!");
 }
 </script>
 
