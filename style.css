@@ -5,13 +5,13 @@ body{
   overflow-x:hidden;
   min-height:100vh;
 
+  /* Pastel swirl background */
   background:
     radial-gradient(circle at 10% 20%, rgba(255,182,193,0.9), transparent 40%),
     radial-gradient(circle at 80% 20%, rgba(255,223,186,0.9), transparent 40%),
     radial-gradient(circle at 30% 70%, rgba(173,216,230,0.9), transparent 45%),
     radial-gradient(circle at 70% 80%, rgba(216,191,216,0.9), transparent 45%),
     radial-gradient(circle at 50% 50%, rgba(255,255,153,0.9), transparent 50%);
-
   background-color:#f7eaff;
   animation: swirl 12s ease-in-out infinite;
   background-size:200% 200%;
@@ -37,7 +37,7 @@ body{
 
 .feed{
   height:80vh;
-  overflow-y:scroll;
+  overflow-y:auto;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -47,7 +47,6 @@ body{
   margin:20px;
   border-radius:25px;
   overflow:hidden;
-
   width:85%;
   max-width:380px;
 
@@ -60,13 +59,13 @@ body{
   backdrop-filter: blur(10px);
 }
 
-/* 🔥 FIXED IMAGE SIZE (NO ZOOM) */
-.post img{
+/* KEY FIX: show more of the image (less zoom) */
+.post > img{
   width:100%;
-  height:220px;          /* smaller image */
-  object-fit:cover;      /* zoomed OUT feel */
-  transform:scale(0.9);  /* zoom OUT more */
-  border-radius:15px;
+  height:260px;          /* slightly taller so faces aren’t huge */
+  object-fit:contain;    /* shows entire image (no crop) */
+  padding:10px;          /* space around image so it feels zoomed out */
+  box-sizing:border-box;
 }
 
 .post-header{
@@ -75,11 +74,17 @@ body{
   gap:10px;
   padding:10px;
   color:#2b0033;
+  font-weight:bold;
+}
+
+.profile-pic{
+  width:35px;
+  height:35px;
+  border-radius:50%;
 }
 
 .username{
   flex:1;
-  font-weight:bold;
 }
 
 .actions{
